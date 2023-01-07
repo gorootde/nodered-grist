@@ -7,5 +7,5 @@ module.exports = function(RED) {
         this.apiKey = n.apiKey
 
     }
-    RED.nodes.registerType("server",ServerNode);
+    RED.nodes.registerType("grist-server",ServerNode);
 }

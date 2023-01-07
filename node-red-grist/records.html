@@ -1,10 +1,10 @@
 <script type="text/javascript">
-    RED.nodes.registerType('records',{
+    RED.nodes.registerType('grist-records',{
         category: 'grist',
         color: '#00bb00',
         defaults: {
-            server:{value:"", type:"server",required:true},
-            document: {value:"",type:"document",required:true},
+            server:{value:"", type:"grist-server",required:true},
+            document: {value:"",type:"grist-document",required:true},
             tableId: {value:"",required:true}
         },
         inputs:1,
@@ -16,7 +16,7 @@
     });
 </script>
 
-<script type="text/html" data-template-name="records">
+<script type="text/html" data-template-name="grist-records">
     <div class="form-row">
         <label for="node-input-document"><i class="fa fa-tag"></i> Document</label>
         <input type="text" id="node-input-document" placeholder="Document">
@@ -32,6 +32,6 @@
 
 </script>
 
-<script type="text/html" data-help-name="records">
+<script type="text/html" data-help-name="grist-records">
     <p>Retrieves records from a grist table</p>
 </script>

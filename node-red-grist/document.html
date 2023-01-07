@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('document',{
+    RED.nodes.registerType('grist-document',{
         category: 'config',
         defaults: { 
             name: {value:"", required:false},
@@ -11,7 +11,7 @@
     });
 </script>
 
-<script type="text/html" data-template-name="document">
+<script type="text/html" data-template-name="grist-document">
     <div class="form-row">
         <label for="node-config-input-name"><i class="fa fa-bookmark"></i> Name</label>
         <input type="text" id="node-config-input-name">

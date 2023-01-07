@@ -1,7 +1,7 @@
 {
   "name": "@gorootde/node-red-grist",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.3",
+  "description": "getgrist.com connectivity for NodeRed",
   "main": "index.js",
   "packageManager": "yarn@3.3.1",
   "scripts": {
@@ -13,14 +13,19 @@
     "node-red",
     "grist"
   ],
-  "bugs": {"url": "https://github.com/gorootde/nodered-grist"},
+  "bugs": {
+    "url": "https://github.com/gorootde/nodered-grist"
+  },
   "node-red": {
     "version": ">=2.0.0",
     "nodes": {
-      "records": "node-red-grist/records.js",
-      "document": "node-red-grist/document.js",
-      "server": "node-red-grist/server.js"
+      "grist-records": "node-red-grist/records.js",
+      "grist-document": "node-red-grist/document.js",
+      "grist-server": "node-red-grist/server.js"
     }
+  },
+  "engines": {
+    "node": ">=14.0.0"
   },
   "dependencies": {
     "grist-api": "^0.1.7"

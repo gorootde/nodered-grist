@@ -4,5 +4,5 @@ module.exports = function(RED) {
         this.docid = n.docid;
         this.name = n.name;
     }
-    RED.nodes.registerType("document",DocumentNode);
+    RED.nodes.registerType("grist-document",DocumentNode);
 }

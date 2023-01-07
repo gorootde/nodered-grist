@@ -18,5 +18,5 @@ module.exports = function(RED) {
             
         });
     }
-    RED.nodes.registerType("records",RecordsNode);
+    RED.nodes.registerType("grist-records",RecordsNode);
 }
