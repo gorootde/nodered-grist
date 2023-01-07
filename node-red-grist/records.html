@@ -5,15 +5,24 @@
         defaults: {
             server:{value:"", type:"grist-server",required:true},
             document: {value:"",type:"grist-document",required:true},
-            tableId: {value:"",required:true}
+            tableId: {value:"",required:true},
+            filter: {value:"",required:false}
         },
         inputs:1,
         outputs:1,
         icon: "font-awesome/fa-table",
         label: function() {
             return this.tableId || "records";
+        },
+        oneditprepare: function () {
+            $("#node-input-filter").typedInput({
+                type:"json",
+                types:["json"]
+            })
         }
     });
+
+   
 </script>
 
 <script type="text/html" data-template-name="grist-records">
@@ -29,6 +38,11 @@
         <label for="node-input-tableId"><i class="fa fa-table"></i> Table Name</label>
         <input type="text" id="node-input-tableId" placeholder="Table Name">
     </div>
+    <div class="form-row">
+        <label for="node-input-filter"><i class="fa fa-filter"></i> Filter</label>
+        <input type="text" id="node-input-filter">
+    </div>
+
 
 </script>
 
