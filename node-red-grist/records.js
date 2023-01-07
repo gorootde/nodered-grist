@@ -8,7 +8,7 @@ module.exports = function(RED) {
         this.server = RED.nodes.getNode(config.server);
         this.table = config.tableId
         node.on('input', async function(msg, send, done) {
-            const protocol=this.server.tlsEnabled ? "https" : "http";
+            const protocol=this.server.tlsEnabled === true ? "https" : "http";
             const url=protocol+"://"+this.server.hostname+":"+this.server.port;
             
             const api = new GristDocAPI(this.document.docid,{apiKey:this.server.apiKey,server:url});
