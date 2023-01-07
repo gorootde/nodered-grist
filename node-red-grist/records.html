@@ -1,0 +1,37 @@
+<script type="text/javascript">
+    RED.nodes.registerType('records',{
+        category: 'grist',
+        color: '#00bb00',
+        defaults: {
+            server:{value:"", type:"server",required:true},
+            document: {value:"",type:"document",required:true},
+            tableId: {value:"",required:true}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "font-awesome/fa-table",
+        label: function() {
+            return this.tableId || "records";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="records">
+    <div class="form-row">
+        <label for="node-input-document"><i class="fa fa-tag"></i> Document</label>
+        <input type="text" id="node-input-document" placeholder="Document">
+    </div>
+    <div class="form-row">
+        <label for="node-input-server"><i class="fa fa-tag"></i> Server</label>
+        <input type="text" id="node-input-server" placeholder="Server">
+    </div>
+    <div class="form-row">
+        <label for="node-input-tableId"><i class="fa fa-tag"></i> Table Name</label>
+        <input type="text" id="node-input-tableId" placeholder="Table Name">
+    </div>
+
+</script>
+
+<script type="text/html" data-help-name="records">
+    <p>Retrieves records from a grist table</p>
+</script>

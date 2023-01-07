@@ -1,0 +1,21 @@
+{
+  "name": "@gorootde/node-red-grist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "GPL-3.0-or-later",
+  "node-red": {
+    "nodes": {
+      "records": "records.js",
+      "document": "document.js",
+      "server": "server.js"
+    }
+  },
+  "dependencies": {
+    "grist-api": "^0.1.7"
+  }
+}

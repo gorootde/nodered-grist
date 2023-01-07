@@ -1,0 +1,25 @@
+<script type="text/javascript">
+    RED.nodes.registerType('document',{
+        category: 'config',
+        defaults: { 
+            name: {value:"", required:false},
+            docid: {value:"",required:true},
+        },
+        label: function() {
+            return this.name || this.docid;
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="document">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-bookmark"></i> Name</label>
+        <input type="text" id="node-config-input-name">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-docid"><i class="fa fa-bookmark"></i> Document ID</label>
+        <input type="text" id="node-config-input-docid">
+    </div>
+
+
+</script>
