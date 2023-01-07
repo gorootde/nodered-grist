@@ -13,6 +13,7 @@
     "node-red",
     "grist"
   ],
+  "bugs": {"url": "https://github.com/gorootde/nodered-grist"},
   "node-red": {
     "version": ">=2.0.0",
     "nodes": {
