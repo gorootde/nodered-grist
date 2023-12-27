@@ -1,6 +1,6 @@
 {
   "name": "@gorootde/node-red-grist",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "getgrist.com connectivity for NodeRed",
   "main": "index.js",
   "packageManager": "yarn@3.3.1",
