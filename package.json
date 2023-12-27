@@ -1,6 +1,6 @@
 {
   "name": "@gorootde/node-red-grist",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "getgrist.com connectivity for NodeRed",
   "main": "index.js",
   "packageManager": "yarn@3.3.1",
@@ -19,7 +19,9 @@
   "node-red": {
     "version": ">=2.0.0",
     "nodes": {
-      "grist-records": "node-red-grist/records.js",
+      "grist-add-records": "node-red-grist/add-records.js",
+      "grist-get-records": "node-red-grist/get-records.js",
+      "grist-update-records": "node-red-grist/update-records.js",
       "grist-document": "node-red-grist/document.js",
       "grist-server": "node-red-grist/server.js"
     }

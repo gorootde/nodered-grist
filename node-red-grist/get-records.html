@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('grist-records', {
+    RED.nodes.registerType('grist-get-records', {
         name: "Get records",
         category: 'grist',
         color: '#00bb00',
@@ -13,8 +13,10 @@
         outputs: 1,
         icon: "font-awesome/fa-table",
         label: function () {
-            return this.tableId || "Get records";
+            return this.tableId ? `[Get] ${this.tableId}` : "Get records";
+
         },
+        paletteLabel: "Get records",
         oneditprepare: function () {
             $("#node-input-filter").typedInput({
                 type: "json",
@@ -26,7 +28,7 @@
 
 </script>
 
-<script type="text/html" data-template-name="grist-records">
+<script type="text/html" data-template-name="grist-get-records">
     <div class="form-row">
         <label for="node-input-document"><i class="fa fa-file-text"></i> Document</label>
         <input type="text" id="node-input-document" placeholder="Document">
@@ -47,7 +49,7 @@
 
 </script>
 
-<script type="text/html" data-help-name="grist-records">
+<script type="text/html" data-help-name="grist-get-records">
     <p>Retrieves records from a grist table.</p>
     <h3>Inputs</h3>
     <p>

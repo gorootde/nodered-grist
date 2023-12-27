@@ -1,7 +1,7 @@
 const { GristDocAPI } = require('grist-api');
 const mustache = require('mustache');
 module.exports = function (RED) {
-    function RecordsNode(config) {
+    function GetRecordsNode(config) {
         RED.nodes.createNode(this, config);
         let node = this;
         this.document = RED.nodes.getNode(config.document);
@@ -21,5 +21,5 @@ module.exports = function (RED) {
 
         });
     }
-    RED.nodes.registerType("grist-records", RecordsNode);
+    RED.nodes.registerType("grist-get-records", GetRecordsNode);
 }

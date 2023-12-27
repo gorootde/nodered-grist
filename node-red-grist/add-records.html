@@ -1,0 +1,55 @@
+<script type="text/javascript">
+    RED.nodes.registerType('grist-add-records', {
+
+        category: 'grist',
+        color: '#00bb00',
+        defaults: {
+            server: { value: "", type: "grist-server", required: true },
+            document: { value: "", type: "grist-document", required: true },
+            tableId: { value: "", required: true },
+
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-table",
+        label: function () {
+            return this.tableId ? `[Add] ${this.tableId}` : "Add records";
+        },
+        paletteLabel: "Add records",
+        oneditprepare: function () {
+
+        }
+    });
+
+
+</script>
+
+<script type="text/html" data-template-name="grist-add-records">
+    <div class="form-row">
+        <label for="node-input-document"><i class="fa fa-file-text"></i> Document</label>
+        <input type="text" id="node-input-document" placeholder="Document">
+    </div>
+    <div class="form-row">
+        <label for="node-input-server"><i class="fa fa-server"></i> Server</label>
+        <input type="text" id="node-input-server" placeholder="Server">
+    </div>
+    <div class="form-row">
+        <label for="node-input-tableId"><i class="fa fa-table"></i> Table Name</label>
+        <input type="text" id="node-input-tableId" placeholder="Table Name">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="grist-add-records">
+    <p>Adds records to a grist table.</p>
+    <h3>Inputs</h3>
+    <p>
+        <code>msg.payload</code> array of records (or a single record object) to add.
+    </p>
+    <h3>Outputs</h3>
+    <p>
+       Array of records that have been added
+    </p>
+    <h3>Attributes</h3>
+    <p>
+        
+</script>
