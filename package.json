@@ -28,6 +28,7 @@
     "node": ">=14.0.0"
   },
   "dependencies": {
-    "grist-api": "^0.1.7"
+    "grist-api": "^0.1.7",
+    "mustache": "^4.2.0"
   }
 }

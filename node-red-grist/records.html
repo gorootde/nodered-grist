@@ -1,28 +1,29 @@
 <script type="text/javascript">
-    RED.nodes.registerType('grist-records',{
+    RED.nodes.registerType('grist-records', {
+        name: "Get records",
         category: 'grist',
         color: '#00bb00',
         defaults: {
-            server:{value:"", type:"grist-server",required:true},
-            document: {value:"",type:"grist-document",required:true},
-            tableId: {value:"",required:true},
-            filter: {value:"",required:false}
+            server: { value: "", type: "grist-server", required: true },
+            document: { value: "", type: "grist-document", required: true },
+            tableId: { value: "", required: true },
+            filter: { value: "", required: false }
         },
-        inputs:1,
-        outputs:1,
+        inputs: 1,
+        outputs: 1,
         icon: "font-awesome/fa-table",
-        label: function() {
-            return this.tableId || "records";
+        label: function () {
+            return this.tableId || "Get records";
         },
         oneditprepare: function () {
             $("#node-input-filter").typedInput({
-                type:"json",
-                types:["json"]
+                type: "json",
+                types: ["json", "str"]
             })
         }
     });
 
-   
+
 </script>
 
 <script type="text/html" data-template-name="grist-records">
@@ -47,5 +48,16 @@
 </script>
 
 <script type="text/html" data-help-name="grist-records">
-    <p>Retrieves records from a grist table</p>
+    <p>Retrieves records from a grist table.</p>
+    <h3>Inputs</h3>
+    <p>
+        The input message object is available for the <code>filter</code> property via mustache template syntax.
+    </p>
+    <h3>Outputs</h3>
+    <p>
+        Array of grist rows (records).
+    </p>
+    <h3>Attributes</h3>
+    <p>
+        <code>filter</code> JSON object with filter definition. Supports mustache syntax for templates.</p>
 </script>
