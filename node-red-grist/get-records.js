@@ -16,7 +16,7 @@ module.exports = function (RED) {
             node.log(`filter evaluated to: ${JSON.stringify(filter)}`)
             const api = new GristDocAPI(this.document.docid, { apiKey: this.server.apiKey, server: url });
             api.fetchTable(this.table, filter).then(data => {
-                node.send({ payload: data, topic: this.table })
+                node.send({ ...msg, payload: data })
             }).catch(reason => done(reason, "Failed to perform grist request to " + url));
 
         });

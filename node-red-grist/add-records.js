@@ -15,7 +15,7 @@ module.exports = function (RED) {
             const data = Array.isArray(msg.payload) ? msg.payload : [msg.payload]
 
             api.addRecords(this.table, data).then(data => {
-                node.send({ payload: data, topic: this.table })
+                node.send({ ...msg, payload: data })
             }).catch(reason => done(reason, "Failed to perform grist request to " + url));
 
         });
