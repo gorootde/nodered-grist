@@ -1,0 +1,67 @@
+<script type="text/javascript">
+    RED.nodes.registerType('grist-document-export', {
+
+        category: 'grist',
+        color: '#00bb00',
+        defaults: {
+            name: { value: "", required: false },
+            server: { value: "", type: "grist-server", required: true },
+            document: { value: "", type: "grist-document", required: true },
+            format: { value: "excel", required: true },
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-download",
+        label: function () {
+            return this.name ? this.name : "Export document";
+        },
+        paletteLabel: "Export document",
+        oneditprepare: function () {
+
+        }
+    });
+
+
+</script>
+
+<script type="text/html" data-template-name="grist-document-export">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-document"><i class="fa fa-file-text"></i> Document</label>
+        <input type="text" id="node-input-document" placeholder="Document">
+    </div>
+    <div class="form-row">
+        <label for="node-input-server"><i class="fa fa-server"></i> Server</label>
+        <input type="text" id="node-input-server" placeholder="Server">
+    </div>
+    <div class="form-row">
+        <label for="node-input-format"><i class="fa fa-file-o"></i> Format</label>
+        <select id="node-input-format" name="node-input-format">
+            <option value="sqlite">SQLite</option>
+            <option value="excel">Excel</option>
+        </select>
+    </div>
+</script>
+
+<script type="text/html" data-help-name="grist-document-export">
+    <p>Exports a document in various formats</p>
+    <h3>Inputs</h3>
+    <p>
+        
+    </p>
+    <h3>Outputs</h3>
+    <p>
+       <ul>
+        <li><code>msg.payload.data</code> Binary buffer containing the file contents</li>
+        <li><code>msg.payload.format</code> Selected export format</li>
+       </ul>
+    </p>
+    <h3>Attributes</h3>
+    <p>
+        <code>Format</code> set the export format
+        </p>
+        
+</script>
