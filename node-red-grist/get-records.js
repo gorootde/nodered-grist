@@ -12,7 +12,8 @@ module.exports = function (RED) {
         node.on('input', async function (msg, send, done) {
             const protocol = this.server.tlsEnabled === true ? "https" : "http";
             const url = protocol + "://" + this.server.hostname + ":" + this.server.port;
-            const filter = this.filter && this.filter !== "" ? JSON.parse(mustache.render(this.filter, { msg })) : undefined
+            const msg_input_filter = msg.filter ? msg.filter : undefined
+            const filter = this.filter && this.filter !== "" ? JSON.parse(mustache.render(this.filter, { msg })) : msg_input_filter
             node.log(`filter evaluated to: ${JSON.stringify(filter)}`)
             const api = new GristDocAPI(this.document.docid, { apiKey: this.server.apiKey, server: url });
             api.fetchTable(this.table, filter).then(data => {
