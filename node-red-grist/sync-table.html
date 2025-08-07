@@ -1,0 +1,68 @@
+<script type="text/javascript">
+    RED.nodes.registerType('grist-sync-table', {
+
+        category: 'grist',
+        color: '#00bb00',
+        defaults: {
+            server: { value: "", type: "grist-server", required: true },
+            document: { value: "", type: "grist-document", required: true },
+            tableId: { value: "", required: true },
+            primaryKey: { value: "", required: true },
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-table",
+        label: function () {
+            return this.tableId ? `[Sync] ${this.tableId}` : "Sync table";
+        },
+        paletteLabel: "Sync table",
+        oneditprepare: function () {
+
+        }
+    });
+
+
+</script>
+
+<script type="text/html" data-template-name="grist-sync-table">
+    <div class="form-row">
+        <label for="node-input-document"><i class="fa fa-file-text"></i> Document</label>
+        <input type="text" id="node-input-document" placeholder="Document">
+    </div>
+    <div class="form-row">
+        <label for="node-input-server"><i class="fa fa-server"></i> Server</label>
+        <input type="text" id="node-input-server" placeholder="Server">
+    </div>
+    <div class="form-row">
+        <label for="node-input-tableId"><i class="fa fa-table"></i> Table Name</label>
+        <input type="text" id="node-input-tableId" placeholder="Table Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-tableId"><i class="fa fa-table"></i> Primary Key(s)</label>
+        <input type="text" id="node-input-primaryKey" placeholder="Primary Key">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="grist-sync-table">
+    <p>Syncs records to a grist table.</p>
+    <h3>Inputs</h3>
+    <p>
+        <code>msg.payload</code> array of records (or a single record object) to sync.
+    </p>
+    <h3>Outputs</h3>
+    <p>
+       Array of records that have been synced (the same as payload received).
+    </p>
+    <h3>Attributes</h3>
+    <p></p>
+    <h3>Description</h3>
+    <p>
+        Syncs a set of records to a Grist table. It matches records based on the Primary Key
+        attribute, which must exist in all elements in payload. If the record exists, it is updated,
+        if it doesn't exist, it is created.
+
+        See https://www.npmjs.com/package/grist-api#synctabletablename-records-keycolids-filters for
+        technical details.
+    </p>
+        
+</script>
